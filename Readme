@@ -10,7 +10,7 @@ Testing Locally(with minikube on docker):
 5. To create your deployment with pods, Run command: kubectl apply -f .\node-web-app-deployment.yaml   .
 6. To create your service on top of pods, Run command: kubectl apply -f .\node-web-app-service.yaml    .
 7. To check for running deployments, pods and services, Run command: kubectl get all  .
-8. To get the port number of your node-web-app-service run command: kubectl service node   . (Note: It should show 30100 on TCP as the port number. 4000 is the port numnber of the service which then fwds requests to pods, where our application is deployed on port 3000.)
+8. To get the port number of your node-web-app-service run command: kubectl service node   . (Note: It should show 30100 on TCP as the port number. 5000 is the port numnber of the service which then fwds requests to pods, where our application is deployed on port 3000.)
 9. node-web-app-service is running on the minicube cluster, which means we will need the ip address of minikube .
 10. To get minikube ip address run command: minikube ip  .
 11. So if your ip address for minikube was 192.168.49.2, your service should be accessible at 192.168.49.2:30100.
