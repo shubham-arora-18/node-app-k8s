@@ -1,0 +1,21 @@
+Prequisite: Install minikube. 
+
+Testing Locally(with minikube on docker):
+1. Run command: minikube start --driver=docker
+2. Run command: kubectl get pod   . (Note: This would not give any resource as no pods deployed yet.)
+3. Run command: kubectl get deployment   . (Note: This would not give any resource as no deployments deployed yet.)
+4. Run command: kubectl get svc   . (Note: This would give only default kubernetes cluster service as no other service deployed yet.)
+5. To create your deployment with pods, Run command: kubectl apply -f .\node-web-app-deployment.yaml   .
+6. To create your service on top of pods, Run command: kubectl apply -f .\node-web-app-service.yaml    .
+7. To check for running deployments, pods and services, Run command: kubectl get all  .
+8. To get the port number of your node-web-app-service run command: kubectl service node   . (Note: It should show 30100 on TCP as the port number. 4000 is the port numnber of the service which then fwds requests to pods, where our application is deployed on port 3000.)
+9. node-web-app-service is running on the minicube cluster, which means we will need the ip address of minikube .
+10. To get minikube ip address run command: minikube ip  .
+11. So if your ip address for minikube was 192.168.49.2, your service should be accessible at 192.168.49.2:30100.
+
+
+
+
+Note - 
+1. To delete all resources from your cluster run: kubectl delete all --all   .
+2. To if you are unable to run your service through the minikube cluster ip address, try this command: minikube service node-web-app-service   . If a tunnel is being created and your app is accessible through that, this is the issue: https://stackoverflow.com/questions/63283823/when-minikube-on-mac-is-asked-for-url-why-does-it-instead-start-a-service-in-a

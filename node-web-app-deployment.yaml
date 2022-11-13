@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-web-app-deployment
+  labels:
+    app: node-web-app-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-web-app-pod
+  template:
+    metadata:
+      labels:
+        app: node-web-app-pod
+    spec:
+      containers:
+      - name: node-web-app-container
+        image: warkahot/node-web-app:latest
+        ports:
+        - containerPort: 3000 #portinside the container where the app will run
+
