@@ -1,4 +1,6 @@
-Prequisite: Install minikube. 
+Description: Teaches how to create kubernetes locally and create a pod and a service on that kubernetes cluster.
+
+Prequisite: Install minikube,docker.
 
 Testing Locally(with minikube on docker):
 1. Run command: minikube start --driver=docker
